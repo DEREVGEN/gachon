@@ -1,7 +1,7 @@
 package com.project.gachon.controller;
 
-import com.project.gachon.domain.WeatherEntity;
-import com.project.gachon.domain.WeatherEntityRepository;
+import com.project.gachon.domain.weather.WeatherEntity;
+import com.project.gachon.domain.weather.WeatherEntityRepository;
 import com.project.gachon.dto.WeatherDto;
 import com.project.gachon.service.WeatherService;
 import org.json.simple.parser.ParseException;

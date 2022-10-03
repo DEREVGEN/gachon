@@ -1,4 +1,4 @@
-package com.project.gachon.domain;
+package com.project.gachon.domain.weather;
 
 import lombok.*;
 

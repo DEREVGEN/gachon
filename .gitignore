@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### secure properties ###
-/src/main/resources/application-secure.properties
+/src/main/resources/application-secure.properties!/src/main/resources/static/firebase_secure_config.json
