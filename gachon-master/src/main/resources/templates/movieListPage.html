@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>movie choice!!</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+        <tr>
+            <td>id값</td>
+            <td>영화제목</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="movie, status: ${movies}">
+            <td th:text="${movie.key}"></td>
+            <td th:text="${movie.value}"></td>
+            <td><a th:href="@{/seachIdMovie(movieId=${movie.key})}">검색</a></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
