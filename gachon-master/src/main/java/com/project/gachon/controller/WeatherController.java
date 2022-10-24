@@ -2,11 +2,14 @@ package com.project.gachon.controller;
 
 import com.project.gachon.domain.weather.WeatherEntity;
 import com.project.gachon.domain.weather.WeatherEntityRepository;
+import com.project.gachon.domain.weather_color.wcEntity;
+import com.project.gachon.domain.weather_color.wcEntityRepository;
 import com.project.gachon.dto.WeatherDto;
 import com.project.gachon.service.WeatherService;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +25,8 @@ public class WeatherController {
     WeatherService weatherService;
     @Autowired
     WeatherEntityRepository repo;
+    @Autowired
+    wcEntityRepository wcRepo;
 
     @GetMapping("/comeOnWeather")
     @ResponseBody
@@ -56,5 +61,21 @@ public class WeatherController {
                 .build();
 
         return weatherDto;
+    }
+
+    @GetMapping("anotherplz")
+    @ResponseBody
+    public String another_color(@RequestParam(value="lat", required = false) double lat, @RequestParam(value = "lon",required = false) double lon,
+                                @RequestParam(value="weather", required = false) String weather, @RequestParam(value="color",required = false) String color) {
+
+        return "good";
+    }
+
+    @GetMapping("giveMeColor")
+    @ResponseBody
+    public String give_me_color() {
+        String userId = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        return "good";
     }
 }

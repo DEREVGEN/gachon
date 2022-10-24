@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,21 +22,11 @@ class wcEntityRepositoryTest {
     @Test
     void test_repo() {
         repo.save(wcEntity.builder()
-                .color("blue")
-                .userId("ydg98381@gmail.com")
-                .weather("fantastic")
+                        .weatherColor("good.wow")
+                        .index(1)
+                        .addedData(LocalDateTime.now())
+                        .deadlineData(LocalDateTime.now())
+                        .userId("ydg983@naver.com")
                 .build());
-    }
-
-    @Test
-    void test_repo2() {
-        List<wcEntity> wcEntityList = repo.findByWeather("good");
-
-        if (wcEntityList.size() == 0) {
-            System.err.println("없습니다.");
-        }
-        else {
-            System.out.println(wcEntityList.get(0).toString());
-        }
     }
 }

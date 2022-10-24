@@ -31,6 +31,7 @@ public class FirebaseTokenValidator extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         FirebaseToken decodedToken;
 
+
         String ft = request.getHeader(SecurityConstants.JWT_HEADER);
 
         if (ft != null && ft.startsWith("Bearer ")) {

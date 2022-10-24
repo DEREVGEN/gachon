@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface wcEntityRepository extends JpaRepository<wcEntity, Long> {
-    List<wcEntity> findByWeather(String weater);
+    List<wcEntity> findByUserId(String userID);
 }

@@ -21,7 +21,7 @@ public class AuthoritiesLoggingAfterFilter extends OncePerRequestFilter {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (null != authentication) {
             System.out.println(LocalDateTime.now() + " - " + "User: " + authentication.getName() + " is successfully authenticated and has the authorities" +
-                    authentication.getAuthorities().toString());
+                    authentication.getAuthorities().toString() + " - access to " + request.getRequestURL());
         } else {
             throw new BadCredentialsException("you are not my member!!");
         }

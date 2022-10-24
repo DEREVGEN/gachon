@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -23,16 +24,23 @@ public class wcEntity {
 
     @Column(length = 50)
     @NotNull
-    private String weather;
+    private String weatherColor;
 
-    @Column(length = 50)
-    @NotNull
-    private String color;
+    @Column
+    private LocalDateTime addedData;
+
+    @Column
+    private LocalDateTime deadlineData;
+
+    @Column
+    private int index;
 
     @Builder
-    public wcEntity(String userId, String weather, String color) {
+    public wcEntity(String userId, String weatherColor, LocalDateTime addedData, LocalDateTime deadlineData, int index) {
         this.userId = userId;
-        this.weather = weather;
-        this.color = color;
+        this.weatherColor = weatherColor;
+        this.addedData = addedData;
+        this.deadlineData = deadlineData;
+        this.index = index;
     }
 }
