@@ -43,4 +43,13 @@ class MemberRepositoryTest {
                 .role("ROLE_USER")
                 .build());
     }
+
+    @Test
+    public void register2_repo() {
+        memberRepository.save(Member.builder()
+                .email("ydg9838@naver.com")
+                .pwd(passwordEncoder.encode("1234"))
+                .role("ROLE_USER")
+                .build());
+    }
 }
