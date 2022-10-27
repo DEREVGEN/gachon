@@ -69,11 +69,13 @@ public class WeatherController {
         return weatherDto;
     }*/
 
-    @GetMapping("anotherplz")
+    @GetMapping("anotherPlz")
     @ResponseBody
-    public ResponseEntity<String> another_color(@RequestParam(value="weather") String weather, @RequestParam(value="color") String color) {
+    public ResponseEntity<String> another_color(@RequestParam(value="lat") double lat, @RequestParam(value="lon") double lon, @RequestParam(value="color") String color) throws ParseException {
         List<weatherColor> weatherColors = wcRepo.findByUserIdByLast(SecurityContextHolder.getContext().getAuthentication().getName());
         int idx;
+
+        String weather = weatherService.getWeather(lat, lon);
 
         if (weatherColors.size() == 0) {
             wcRepo.save(weatherColor.builder()
